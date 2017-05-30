@@ -20,6 +20,10 @@ var GithubService = (function () {
         return this._http.get('https://api.github.com/users/' + this.username)
             .map(function (res) { return res.json(); });
     };
+    GithubService.prototype.getRepos = function () {
+        return this._http.get('https://api.github.com/users/' + this.username + '/repos')
+            .map(function (res) { return res.json(); });
+    };
     return GithubService;
 }());
 GithubService = __decorate([

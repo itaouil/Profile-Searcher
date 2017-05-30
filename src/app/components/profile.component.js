@@ -15,10 +15,15 @@ var ProfileComponent = (function () {
     function ProfileComponent(_githubService) {
         var _this = this;
         this._githubService = _githubService;
-        // Object containing user
+        // Object containing user details
         this.user = [];
+        // Object containing users repos
+        this.repos = [];
         this._githubService.getUser().subscribe(function (user) {
             _this.user = user;
+        });
+        this._githubService.getRepos().subscribe(function (repos) {
+            _this.repos = repos;
         });
     }
     return ProfileComponent;
