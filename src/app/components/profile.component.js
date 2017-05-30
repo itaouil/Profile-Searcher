@@ -13,9 +13,12 @@ var github_service_1 = require("../services/github.service");
 require("rxjs/add/operator/map");
 var ProfileComponent = (function () {
     function ProfileComponent(_githubService) {
+        var _this = this;
         this._githubService = _githubService;
+        // Object containing user
+        this.user = [];
         this._githubService.getUser().subscribe(function (user) {
-            console.log(user);
+            _this.user = user;
         });
     }
     return ProfileComponent;

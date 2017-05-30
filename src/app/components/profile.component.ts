@@ -9,9 +9,12 @@ import 'rxjs/add/operator/map';
 
 export class ProfileComponent  {
 
+  // Object containing user
+  public user: Object = [];
+
   constructor(private _githubService:GithubService) {
     this._githubService.getUser().subscribe(user => {
-      console.log(user);
+      this.user = user;
     });
   }
 
