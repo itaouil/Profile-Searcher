@@ -1,3 +1,12 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-group">
+      <input class="form-control" type="text" name="username" placeholder="Enter A GitHub Username ..."
+      [(ngModel)]="username" (keyup)='searchUser()'>
+    </form>
+  </div>
+</div>
+
 <div *ngIf="user">
 
   <div class="panel panel-default">
@@ -6,7 +15,6 @@
     </div>
     <div class="panel-body">
       <div class="row">
-
         <!-- User Image -->
         <div class="col-md-4">
           <img class="profile-img img-thumbnail" src="{{ user.avatar_url }}">

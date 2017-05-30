@@ -13,19 +13,26 @@ var github_service_1 = require("../services/github.service");
 require("rxjs/add/operator/map");
 var ProfileComponent = (function () {
     function ProfileComponent(_githubService) {
-        var _this = this;
         this._githubService = _githubService;
         // Object containing user details
         this.user = [];
         // Object containing users repos
         this.repos = [];
+        // Username
+        this.username = null;
+        this.user = null;
+    }
+    ProfileComponent.prototype.searchUser = function () {
+        var _this = this;
+        // Update username
+        this._githubService.updateUser(this.username);
         this._githubService.getUser().subscribe(function (user) {
             _this.user = user;
         });
         this._githubService.getRepos().subscribe(function (repos) {
             _this.repos = repos;
         });
-    }
+    };
     return ProfileComponent;
 }());
 ProfileComponent = __decorate([

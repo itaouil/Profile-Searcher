@@ -14,7 +14,6 @@ require("rxjs/add/operator/map");
 var GithubService = (function () {
     function GithubService(_http) {
         this._http = _http;
-        this.username = 'itaouil95';
     }
     GithubService.prototype.getUser = function () {
         return this._http.get('https://api.github.com/users/' + this.username)
@@ -23,6 +22,9 @@ var GithubService = (function () {
     GithubService.prototype.getRepos = function () {
         return this._http.get('https://api.github.com/users/' + this.username + '/repos')
             .map(function (res) { return res.json(); });
+    };
+    GithubService.prototype.updateUser = function (username) {
+        this.username = username;
     };
     return GithubService;
 }());
