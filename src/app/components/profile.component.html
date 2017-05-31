@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <form class="form-group">
       <input class="form-control" type="text" name="username" placeholder="Enter A GitHub Username ..."
-      [(ngModel)]="username" (keyup)='searchUser()'>
+      [(ngModel)]="username" (keyup.enter)='searchUser()'>
     </form>
   </div>
 </div>
